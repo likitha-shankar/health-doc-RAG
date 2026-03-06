@@ -1,0 +1,112 @@
+Clinical Practice Guideline: Management of Type 2 Diabetes Mellitus
+Published: January 2024
+Version: 3.1
+
+1. Introduction
+
+Type 2 Diabetes Mellitus (T2DM) is a chronic metabolic disorder characterized by hyperglycemia resulting from insulin resistance and relative insulin deficiency. This guideline provides evidence-based recommendations for the diagnosis, treatment, and long-term management of T2DM in adult patients. It is intended for use by primary care physicians, endocrinologists, and allied healthcare professionals.
+
+The global prevalence of T2DM has risen dramatically over the past three decades, now affecting approximately 462 million individuals worldwide. Early diagnosis and comprehensive management are essential to reducing the risk of microvascular and macrovascular complications.
+
+2. Diagnostic Criteria
+
+Diagnosis of T2DM should be based on one or more of the following laboratory criteria:
+- Fasting Plasma Glucose (FPG) greater than or equal to 126 mg/dL (7.0 mmol/L) after at least 8 hours of fasting
+- 2-hour Plasma Glucose greater than or equal to 200 mg/dL (11.1 mmol/L) during an oral glucose tolerance test (OGTT) using a 75g glucose load
+- HbA1c greater than or equal to 6.5% (48 mmol/mol)
+- Random Plasma Glucose greater than or equal to 200 mg/dL (11.1 mmol/L) in a patient with classic symptoms of hyperglycemia or hyperglycemic crisis
+
+NOTE: A single abnormal test result should be confirmed by repeat testing on a separate day, unless the patient presents with unequivocal hyperglycemia. The use of point-of-care HbA1c devices for diagnosis is not recommended due to insufficient standardization.
+
+3. Initial Assessment
+
+Upon diagnosis, the following baseline assessments should be performed:
+- Complete metabolic panel including renal function (eGFR) and hepatic function
+- Lipid profile (total cholesterol, LDL, HDL, triglycerides)
+- Urine albumin-to-creatinine ratio (UACR)
+- Dilated retinal examination
+- Comprehensive foot examination including monofilament testing
+- Blood pressure measurement
+- Body mass index (BMI) calculation
+- Assessment of cardiovascular risk factors
+- Screening for depression and diabetes distress
+
+4. Pharmacological Treatment
+
+4.1 First-Line Therapy
+
+Metformin remains the recommended first-line pharmacological agent for T2DM unless contraindicated. Initiate at 500mg once daily with meals, titrating to a maximum of 2000mg daily in divided doses over 4-8 weeks as tolerated.
+
+WARNING: Metformin is contraindicated in patients with an estimated glomerular filtration rate (eGFR) below 30 mL/min/1.73m2. Use with caution in patients with eGFR between 30-45 mL/min/1.73m2, with dose reduction to a maximum of 1000mg daily. Monitor renal function at least annually, and every 3-6 months in patients with declining renal function.
+
+IMPORTANT: Metformin should be temporarily discontinued 48 hours before and after administration of iodinated contrast media due to the risk of contrast-induced nephropathy and subsequent lactic acidosis.
+
+4.2 Second-Line Therapy
+
+If glycemic targets are not achieved with metformin monotherapy after 3-6 months (HbA1c remains above target), add a second agent based on the patient's clinical profile:
+
+For patients with established atherosclerotic cardiovascular disease (ASCVD):
+- SGLT2 inhibitors (empagliflozin 10-25mg daily, dapagliflozin 10mg daily) — preferred due to demonstrated cardiovascular and renal benefits
+- GLP-1 receptor agonists (semaglutide 0.25-1mg weekly, liraglutide 0.6-1.8mg daily)
+
+For patients with heart failure (HFrEF or HFpEF):
+- SGLT2 inhibitors — preferred based on evidence from DAPA-HF and EMPEROR-Reduced trials
+
+For patients with diabetic kidney disease (DKD):
+- SGLT2 inhibitors — preferred if eGFR is adequate for initiation (generally above 20 mL/min/1.73m2)
+- Finerenone may be considered as an adjunct for additional cardiorenal protection
+
+WARNING: SGLT2 inhibitors carry a risk of diabetic ketoacidosis (DKA), including euglycemic DKA. Advise patients to discontinue SGLT2 inhibitors during acute illness, surgery, or prolonged fasting. Educate patients on symptoms of DKA including nausea, vomiting, abdominal pain, and excessive thirst.
+
+CAUTION: GLP-1 receptor agonists are contraindicated in patients with a personal or family history of medullary thyroid carcinoma (MTC) or Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).
+
+4.3 Insulin Therapy
+
+Insulin therapy should be considered when:
+- HbA1c remains above 10% despite dual or triple oral therapy
+- The patient presents with symptomatic hyperglycemia (polyuria, polydipsia, unexplained weight loss)
+- There is evidence of ongoing catabolism
+
+Basal insulin (glargine U-100 or U-300, degludec) should be initiated at 10 units daily or 0.1-0.2 units/kg/day, titrating by 2-4 units every 3-7 days to achieve fasting glucose targets of 80-130 mg/dL.
+
+WARNING: Patients on insulin therapy must be educated about the signs and symptoms of hypoglycemia, including tremor, sweating, confusion, and loss of consciousness. Ensure patients have access to rapid-acting glucose and a glucagon emergency kit. Severe hypoglycemia requires immediate medical attention.
+
+5. Glycemic Targets
+
+- General adult population: HbA1c less than 7.0% (53 mmol/mol)
+- Older adults (age 65 and above) or patients with significant comorbidities: HbA1c less than 8.0% (64 mmol/mol)
+- Pregnant patients with pre-existing T2DM: HbA1c less than 6.5% (48 mmol/mol) if achievable without significant hypoglycemia
+
+NOTE: Glycemic targets should be individualized based on patient age, duration of diabetes, life expectancy, comorbid conditions, known cardiovascular disease, advanced microvascular complications, hypoglycemia unawareness, and patient preferences.
+
+6. Monitoring and Follow-Up
+
+- HbA1c testing every 3-6 months depending on glycemic stability
+- Self-monitoring of blood glucose (SMBG) as appropriate, especially for patients on insulin or sulfonylureas
+- Continuous glucose monitoring (CGM) should be considered for patients on intensive insulin regimens
+- Annual dilated eye examination
+- Annual foot examination with monofilament and vibration testing
+- Annual screening for albuminuria (UACR)
+- Lipid profile annually
+- Blood pressure at every visit
+- Assessment of medication adherence and side effects at every visit
+
+7. Complications Screening
+
+7.1 Cardiovascular Disease
+
+All patients with T2DM should be assessed for cardiovascular risk. Statin therapy is recommended for patients aged 40-75 with diabetes, regardless of baseline LDL cholesterol. Aspirin (75-162mg daily) may be considered for secondary prevention in patients with established ASCVD.
+
+7.2 Diabetic Nephropathy
+
+Screen annually with serum creatinine, eGFR, and UACR. Initiate ACE inhibitor or ARB therapy in patients with confirmed albuminuria (UACR 30 mg/g or above) to slow progression. Consider referral to nephrology when eGFR falls below 30 mL/min/1.73m2.
+
+7.3 Diabetic Retinopathy
+
+Annual dilated retinal examination is mandatory. More frequent examinations (every 3-6 months) are required in patients with existing retinopathy. Refer to ophthalmology for any evidence of moderate or severe nonproliferative or proliferative diabetic retinopathy.
+
+7.4 Diabetic Neuropathy
+
+Screen annually using monofilament testing, pin-prick sensation, vibration perception, and ankle reflexes. First-line treatments for painful diabetic neuropathy include pregabalin (75-300mg daily), duloxetine (60-120mg daily), or gabapentin (900-3600mg daily in divided doses).
+
+WARNING: Pregabalin and gabapentin carry risks of sedation, dizziness, and respiratory depression, particularly when combined with opioids or in patients with renal impairment. Dose adjustment is required in patients with eGFR below 60 mL/min/1.73m2.
