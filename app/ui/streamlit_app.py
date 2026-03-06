@@ -53,29 +53,34 @@ def render_citation_card(citation: dict, colour: str) -> None:
     section = citation.get("section_title", "")
     excerpt = citation.get("excerpt", "")
 
-    section_tag = f"<span style='color:#555;'>· {section}</span>" if section else ""
-    excerpt_html = (
-        f"<blockquote style='border-left:3px solid {colour};margin:8px 0 0 0;"
-        f"padding:6px 10px;background:#fafafa;font-style:italic;"
-        f"color:#333;border-radius:0 4px 4px 0;font-size:0.9em;'>"
-        f""{excerpt}"</blockquote>"
-        if excerpt else ""
-    )
+    section_tag = f"<span style='color:#555;'>&middot; {section}</span>" if section else ""
 
-    st.markdown(
-        f"""<div style='border-left:4px solid {colour};border-radius:4px;
-        padding:10px 14px;margin:6px 0;background:#f5f8ff;'>
-        <div>
-            <span style='background:{colour};color:#fff;border-radius:3px;
-            padding:1px 7px;font-weight:700;font-size:0.85em;'>[{num}]</span>
-            &nbsp;<strong style='font-size:0.95em;'>{doc}</strong>
-            &nbsp;<span style='color:#777;font-size:0.85em;'>Page {page}</span>
-            &nbsp;{section_tag}
-        </div>
-        {excerpt_html}
-        </div>""",
-        unsafe_allow_html=True,
+    if excerpt:
+        excerpt_html = (
+            "<blockquote style='border-left:3px solid "
+            + colour
+            + ";margin:8px 0 0 0;padding:6px 10px;background:#fafafa;"
+            "font-style:italic;color:#333;border-radius:0 4px 4px 0;font-size:0.9em;'>"
+            + excerpt
+            + "</blockquote>"
+        )
+    else:
+        excerpt_html = ""
+
+    card = (
+        f"<div style='border-left:4px solid {colour};border-radius:4px;"
+        f"padding:10px 14px;margin:6px 0;background:#f5f8ff;'>"
+        f"<div>"
+        f"<span style='background:{colour};color:#fff;border-radius:3px;"
+        f"padding:1px 7px;font-weight:700;font-size:0.85em;'>[{num}]</span>"
+        f"&nbsp;<strong style='font-size:0.95em;'>{doc}</strong>"
+        f"&nbsp;<span style='color:#777;font-size:0.85em;'>Page {page}</span>"
+        f"&nbsp;{section_tag}"
+        f"</div>"
+        f"{excerpt_html}"
+        f"</div>"
     )
+    st.markdown(card, unsafe_allow_html=True)
 
 from app.generation.generator import generate_answer
 from app.ingestion.pipeline import ingest
