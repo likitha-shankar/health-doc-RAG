@@ -76,7 +76,7 @@ def rerank(
 
     # Step 1: Build query-chunk pairs for the cross-encoder.
     # Each pair is (query_text, chunk_text). The model reads both together.
-    pairs = [(query, candidate["text"]) for candidate in candidates]
+    pairs = [(query, candidate.get("text", "")) for candidate in candidates]
 
     # Step 2: Score all pairs in a single batch.
     # This is much more efficient than scoring one at a time because the

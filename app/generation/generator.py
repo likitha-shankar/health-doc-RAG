@@ -80,6 +80,9 @@ def generate_answer(
              → build_user_prompt() → structured prompt with [Source N] labels
              → LLM → citation-grounded answer
     """
+    if not query or not query.strip():
+        return {"answer": "Please enter a question.", "context_chunks": [], "query": query}
+
     # Stage 1: Retrieve candidates (vector + BM25 + RRF)
     print(f"[Generator] Retrieving candidates for: {query}")
     candidates = hybrid_search(query, top_k=retrieval_top_k)
