@@ -1,0 +1,19 @@
+# Chunking configuration
+# These values control how documents get split into chunks.
+
+chunking:
+  # Maximum number of characters per chunk.
+  # Why 1500? Medical sections are often 1-3 paragraphs. 1500 chars (~300-400 tokens)
+  # is large enough to keep a complete procedure or warning block intact, but small
+  # enough that embedding models can represent the content meaningfully.
+  # Too large → embeddings become diluted (everything matches vaguely).
+  # Too small → context is lost (dosage without its warning).
+  max_chunk_size: 1500
+
+  # Overlap between consecutive chunks (in characters).
+  # This is insurance against bad splits. If a sentence gets cut at a chunk
+  # boundary, the overlap ensures it appears fully in at least one chunk.
+  chunk_overlap: 200
+
+  # Minimum chunk size — discard tiny fragments that add noise to retrieval.
+  min_chunk_size: 100
