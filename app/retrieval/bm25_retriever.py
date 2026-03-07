@@ -90,9 +90,9 @@ class BM25Retriever:
                 print(f"[BM25] Loaded {len(chunks)} chunks from {json_file.name}")
 
         if not all_chunks:
-            raise FileNotFoundError(
-                f"No chunk files found in {PROCESSED_DIR}. Run ingestion first."
-            )
+            # Return an empty retriever instead of crashing — the UI may
+            # query before any documents are ingested.
+            return cls([], BM25Okapi([[""]]))
 
         return cls.from_chunks(all_chunks)
 

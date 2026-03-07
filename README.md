@@ -4,6 +4,18 @@ A production-grade **Retrieval-Augmented Generation (RAG)** system purpose-built
 
 ---
 
+## Screenshots
+
+| Ask a Question | Browse Documents |
+|:-:|:-:|
+| ![Q&A with cited answer](docs/screenshots/qa-answer.png) | ![Browse clinical guideline](docs/screenshots/browse-guideline.png) |
+
+| About | Document Status |
+|:-:|:-:|
+| ![About tab](docs/screenshots/about-tab.png) | ![Status popover with chunk details](docs/screenshots/status-popover.png) |
+
+---
+
 ## Table of Contents
 
 - [What is RAG?](#what-is-rag)
@@ -52,12 +64,12 @@ Think of it like an open-book exam: the LLM is not allowed to guess — it must 
 
 Healthcare documents have properties that make standard LLMs dangerous:
 
-| Problem | Example | Consequence |
-|---------|---------|-------------|
-| **Hallucination** | LLM invents a dosage not in the guideline | Patient receives wrong dose |
-| **Stale knowledge** | LLM trained in 2023 doesn't know a 2024 guideline update | Outdated treatment applied |
-| **No provenance** | LLM gives an answer but can't say where it came from | Clinician can't verify |
-| **Context destruction** | Naive chunking separates a WARNING from its dosage | Safety warning is missed |
+| Problem                 | Example                                                  | Consequence                 |
+|-------------------------|----------------------------------------------------------|-----------------------------|
+| **Hallucination**       | LLM invents a dosage not in the guideline                | Patient receives wrong dose |
+| **Stale knowledge**     | LLM trained in 2023 doesn't know a 2024 guideline update | Outdated treatment applied  |
+| **No provenance**       | LLM gives an answer but can't say where it came from     | Clinician can't verify      |
+| **Context destruction** | Naive chunking separates a WARNING from its dosage       | Safety warning is missed    |
 
 This system addresses all four:
 - Answers come only from your uploaded documents (no hallucination from training data)
@@ -72,23 +84,23 @@ This system addresses all four:
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        STREAMLIT UI                             │
-│   ┌──────────────────┐          ┌──────────────────────────┐   │
-│   │  Upload Sidebar  │          │   Ask a Question Tab     │   │
-│   │  • File uploader │          │   • Question input       │   │
-│   │  • Loaded docs   │          │   • Cited answer         │   │
-│   │  • Clear all     │          │   • Retrieved chunks     │   │
-│   └────────┬─────────┘          └──────────────┬───────────┘   │
-└────────────│──────────────────────────────────│───────────────┘
-             │ upload                            │ query
-             ▼                                  ▼
+│   ┌──────────────────┐           ┌──────────────────────────┐   │
+│   │  Upload Sidebar  │           │   Ask a Question Tab     │   │
+│   │  • File uploader │           │   • Question input       │   │
+│   │  • Loaded docs   │           │   • Cited answer         │   │
+│   │  • Clear all     │           │   • Retrieved chunks     │   │
+│   └────────┬─────────┘           └──────────────┬───────────┘   │
+└────────────│────────────────────────────────────│───────────────┘
+             │ upload                             │ query
+             ▼                                    ▼
 ┌────────────────────┐              ┌────────────────────────────┐
 │  INGESTION         │              │  GENERATION PIPELINE       │
 │  pipeline.py       │              │                            │
 │  ┌──────────────┐  │              │  hybrid_retriever.py       │
-│  │ Load (PDF/   │  │              │  ┌──────────┐ ┌─────────┐ │
-│  │   txt)       │  │              │  │ Vector   │ │  BM25   │ │
-│  └──────┬───────┘  │              │  │ Search   │ │ Search  │ │
-│         ▼          │              │  └────┬─────┘ └────┬────┘ │
+│  │ Load (PDF/   │  │              │  ┌──────────┐ ┌─────────┐  │
+│  │   txt)       │  │              │  │ Vector   │ │  BM25   │  │
+│  └──────┬───────┘  │              │  │ Search   │ │ Search  │  │
+│         ▼          │              │  └────┬─────┘ └────┬────┘  │
 │  ┌──────────────┐  │              │       │            │       │
 │  │ Structure-   │  │              │       └─────┬──────┘       │
 │  │ Aware Chunk  │  │              │             ▼              │
@@ -464,7 +476,7 @@ ollama pull qwen3:latest
 ### Running the Web UI
 
 ```bash
-streamlit run app/ui/streamlit_app.py
+PYTHONPATH=. streamlit run app/ui/streamlit_app.py
 ```
 
 Open [http://localhost:8501](http://localhost:8501).
@@ -474,10 +486,27 @@ Open [http://localhost:8501](http://localhost:8501).
 3. Switch to **Ask a Question** tab and type your question
 4. Switch to **Browse Documents** tab to read the full document content
 
+### Deploying to Streamlit Cloud
+
+The app can be deployed to [Streamlit Community Cloud](https://share.streamlit.io) with a free cloud LLM backend (Groq).
+
+1. Push this repo to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io) and connect your repo
+3. Set **Main file path** to `app/ui/streamlit_app.py`
+4. In **Advanced settings > Secrets**, add:
+   ```toml
+   LLM_BASE_URL = "https://api.groq.com/openai/v1"
+   LLM_API_KEY = "gsk_your_groq_api_key_here"
+   LLM_MODEL = "llama-3.3-70b-versatile"
+   ```
+5. Get a free Groq API key at [console.groq.com](https://console.groq.com/keys)
+
+Sample documents are auto-ingested on first run — the app is usable immediately.
+
 ### Running via CLI
 
 ```bash
-python run_query.py "What are the renal contraindications for metformin?"
+PYTHONPATH=. python run_query.py "What are the renal contraindications for metformin?"
 ```
 
 ### Ingesting a document programmatically
@@ -500,11 +529,11 @@ The system includes a dual evaluation pipeline:
 
 Runs in ~2 minutes. Measures three metrics approximating the Ragas standard:
 
-| Metric | What it measures | How | Threshold |
-|--------|-----------------|-----|-----------|
-| **Faithfulness** | Is the answer grounded in the retrieved context? | Citation presence (45%) + 3-gram overlap with context (55%) | ≥ 0.65 |
-| **Answer Relevancy** | Does the answer address the question? | Cosine similarity between question and answer embeddings | ≥ 0.70 |
-| **Context Precision** | Did retrieval find the right chunks? | Phrase containment of ground truth in retrieved chunks | ≥ 0.50 |
+| Metric                | What it measures                                 | How                                                         | Threshold |
+|-----------------------|--------------------------------------------------|-------------------------------------------------------------|-----------|
+| **Faithfulness**      | Is the answer grounded in the retrieved context? | Citation presence (45%) + 3-gram overlap with context (55%) | ≥ 0.65    |
+| **Answer Relevancy**  | Does the answer address the question?            | Cosine similarity between question and answer embeddings    | ≥ 0.70    |
+| **Context Precision** | Did retrieval find the right chunks?             | Phrase containment of ground truth in retrieved chunks      | ≥ 0.50    |
 
 ```bash
 python -m app.evaluation.evaluate
@@ -547,14 +576,14 @@ push to main → CI → ingest → evaluate → PASS/FAIL
 
 The system ingests any clinical text document. Examples tested:
 
-| Document Type | Example Questions |
-|---------------|-------------------|
-| Clinical Practice Guidelines | "What is the first-line treatment for Type 2 Diabetes?" |
-| Discharge Summaries | "What medications was the patient discharged on?" |
-| Lab Reports | "What was the patient's eGFR on admission?" |
-| Radiology Reports | "What did the chest X-ray show?" |
-| Operative Notes | "What procedure was performed and what were the findings?" |
-| Drug Formularies | "What are the contraindications for drug X?" |
+| Document Type                | Example Questions                                          |
+|------------------------------|------------------------------------------------------------|
+| Clinical Practice Guidelines | "What is the first-line treatment for Type 2 Diabetes?"    |
+| Discharge Summaries          | "What medications was the patient discharged on?"          |
+| Lab Reports                  | "What was the patient's eGFR on admission?"                |
+| Radiology Reports            | "What did the chest X-ray show?"                           |
+| Operative Notes              | "What procedure was performed and what were the findings?" |
+| Drug Formularies             | "What are the contraindications for drug X?"               |
 
 Multiple documents can be loaded simultaneously. Retrieval searches across all of them. The `[Source N]` citation tells you exactly which document the answer came from.
 
@@ -562,21 +591,21 @@ Multiple documents can be loaded simultaneously. Retrieval searches across all o
 
 ## Glossary
 
-| Term | Definition |
-|------|-----------|
-| **RAG** | Retrieval-Augmented Generation — grounding LLM answers in a specific document set |
-| **Chunk** | A passage of text extracted from a document, typically 200-1500 characters |
-| **Embedding** | A fixed-size vector of numbers representing the meaning of text |
-| **Vector Store** | A database optimised for storing and searching embedding vectors |
-| **Cosine Similarity** | Measures the angle between two vectors — 1.0 = identical meaning, 0.0 = unrelated |
-| **HNSW** | Hierarchical Navigable Small World — a graph index for fast approximate nearest-neighbour search |
-| **BM25** | Best Match 25 — a classic keyword-based ranking algorithm used in search engines |
-| **RRF** | Reciprocal Rank Fusion — a technique to merge multiple ranked lists into one |
-| **Bi-encoder** | A model that embeds query and document independently for fast retrieval |
-| **Cross-encoder** | A model that reads query and document together for accurate reranking |
-| **Reranking** | A second-pass precision scoring of retrieval candidates |
-| **Faithfulness** | The degree to which an answer is supported by the retrieved context |
-| **Hallucination** | When an LLM generates information not present in or contradicted by its input |
-| **eGFR** | Estimated Glomerular Filtration Rate — a measure of kidney function |
-| **HbA1c** | Glycated haemoglobin — a measure of average blood glucose over ~3 months |
-| **NYHA Class** | New York Heart Association classification of heart failure severity |
+| Term                  | Definition                                                                                        |
+|-----------------------|---------------------------------------------------------------------------------------------------|
+| **RAG**               | Retrieval-Augmented Generation — grounding LLM answers in a specific document set                 |
+| **Chunk**             | A passage of text extracted from a document, typically 200-1500 characters                        |
+| **Embedding**         | A fixed-size vector of numbers representing the meaning of text                                   |
+| **Vector Store**      | A database optimised for storing and searching embedding vectors                                  |
+| **Cosine Similarity** | Measures the angle between two vectors — 1.0 = identical meaning, 0.0 = unrelated                 |
+| **HNSW**              | Hierarchical Navigable Small World — a graph index for fast approximate nearest-neighbour search  |
+| **BM25**              | Best Match 25 — a classic keyword-based ranking algorithm used in search engines                  |
+| **RRF**               | Reciprocal Rank Fusion — a technique to merge multiple ranked lists into one                      |
+| **Bi-encoder**        | A model that embeds query and document independently for fast retrieval                           |
+| **Cross-encoder**     | A model that reads query and document together for accurate reranking                             |
+| **Reranking**         | A second-pass precision scoring of retrieval candidates                                           |
+| **Faithfulness**      | The degree to which an answer is supported by the retrieved context                               |
+| **Hallucination**     | When an LLM generates information not present in or contradicted by its input                     |
+| **eGFR**              | Estimated Glomerular Filtration Rate — a measure of kidney function                               |
+| **HbA1c**             | Glycated haemoglobin — a measure of average blood glucose over ~3 months                          |
+| **NYHA Class**        | New York Heart Association classification of heart failure severity                               |

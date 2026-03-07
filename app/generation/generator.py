@@ -37,30 +37,37 @@ from app.generation.prompts import SYSTEM_PROMPT, build_user_prompt
 from app.generation.citation_parser import parse_llm_output
 from app.embeddings.vector_store import get_collection
 
-# Ollama exposes an OpenAI-compatible API on localhost:11434.
-# We use the OpenAI SDK pointed at Ollama — same interface, local model.
-OLLAMA_BASE_URL = "http://localhost:11434/v1"
-DEFAULT_MODEL = "qwen3:latest"
+# LLM backend configuration — works with any OpenAI-compatible API.
+# Local: Ollama on localhost:11434 (default, fully offline)
+# Cloud: Groq, Together AI, OpenRouter, etc. (set via env vars)
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "http://localhost:11434/v1")
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "ollama")
+LLM_MODEL = os.environ.get("LLM_MODEL", "qwen3:latest")
+
+
+_client: OpenAI | None = None
 
 
 def _get_client() -> OpenAI:
-    """Create an OpenAI client pointed at the local Ollama server.
+    """Create an OpenAI client pointed at the configured LLM backend.
 
-    Why OpenAI SDK for Ollama? Ollama implements the OpenAI API spec,
-    so the same client code works with Ollama, OpenAI, Azure OpenAI,
-    or any OpenAI-compatible provider. One code path, many backends.
+    Why OpenAI SDK? Most LLM providers (Ollama, Groq, Together AI,
+    OpenRouter) implement the OpenAI API spec. One client, many backends.
     """
-    return OpenAI(
-        base_url=OLLAMA_BASE_URL,
-        api_key="ollama",  # Ollama doesn't need a real key, but the SDK requires one
-    )
+    global _client
+    if _client is None:
+        _client = OpenAI(
+            base_url=LLM_BASE_URL,
+            api_key=LLM_API_KEY,
+        )
+    return _client
 
 
 def generate_answer(
     query: str,
     retrieval_top_k: int = 10,
     rerank_top_k: int = 5,
-    model: str = DEFAULT_MODEL,
+    model: str = LLM_MODEL,
 ) -> dict:
     """Full RAG pipeline: retrieve → rerank → generate cited answer.
 
@@ -97,24 +104,32 @@ def generate_answer(
     reranked = rerank(query, candidates, top_k=rerank_top_k)
     print(f"[Generator] Reranked to top {len(reranked)} chunks")
     for i, chunk in enumerate(reranked):
-        score = chunk.get("rerank_score", "N/A")
+        score = chunk.get("rerank_score")
         section = chunk["metadata"]["section_title"]
-        print(f"  [{i+1}] score={score:.2f}  section='{section}'")
+        score_str = f"{score:.2f}" if isinstance(score, (int, float)) else "N/A"
+        print(f"  [{i+1}] score={score_str}  section='{section}'")
 
     # Stage 3: Build the prompt with labeled context
     user_prompt = build_user_prompt(query, reranked)
 
     # Stage 4: Call the LLM
-    print(f"[Generator] Calling {model} via Ollama...")
+    # /no_think disables Qwen3's thinking mode to avoid wasting tokens.
+    # Only append it for Qwen3 models; other models ignore or don't need it.
+    prompt_content = user_prompt
+    if "qwen3" in model.lower():
+        prompt_content += "\n\n/no_think"
+
+    print(f"[Generator] Calling {model} via {LLM_BASE_URL}...")
     client = _get_client()
     response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
+            {"role": "user", "content": prompt_content},
         ],
         temperature=0.1,  # Low temperature for factual, deterministic answers.
                           # High temperature = more creative = more hallucination risk.
+        max_tokens=512,
     )
 
     raw_answer = response.choices[0].message.content

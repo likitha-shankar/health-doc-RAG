@@ -1,0 +1,200 @@
+LABORATORY REPORT
+
+Institution: Pacific Medical Centre
+Department: Clinical Pathology
+Report Type: Comprehensive Metabolic and Haematology Panel
+
+============================================================
+PATIENT INFORMATION
+============================================================
+
+Patient Name:        Sarah Mei Chen
+Date of Birth:       22 July 1975
+Age:                 48 years
+Sex:                 Female
+MRN:                 PMC-2024-041298
+Ordering Physician:  Dr. Robert Kim, MD (Family Medicine)
+
+Collection Date:     12 March 2024 at 08:15 (fasting)
+Received:            12 March 2024 at 08:45
+Reported:            12 March 2024 at 14:30
+
+Clinical Notes:      Routine annual screening. History of gestational
+                     diabetes (2008), family history of T2DM (mother,
+                     maternal grandmother). BMI 31.2. Complaints of
+                     fatigue and increased thirst over past 3 months.
+
+============================================================
+COMPREHENSIVE METABOLIC PANEL
+============================================================
+
+Glucose, Fasting:         142 mg/dL        (H)    Reference: 70-100 mg/dL
+  NOTE: Fasting confirmed by patient (12-hour fast). Result exceeds
+  diagnostic threshold for diabetes (>=126 mg/dL). Recommend repeat
+  testing on a separate day for confirmation per ADA guidelines.
+
+HbA1c:                    7.2%             (H)    Reference: <5.7% (normal)
+                                                              5.7-6.4% (prediabetes)
+                                                              >=6.5% (diabetes)
+  INTERPRETATION: HbA1c of 7.2% is above the diagnostic threshold of 6.5%
+  for Type 2 Diabetes Mellitus. Combined with fasting glucose of 142 mg/dL,
+  these results are diagnostic of T2DM. No repeat testing required when two
+  different tests both exceed thresholds on the same sample.
+
+Sodium:                   139 mEq/L               Reference: 136-145 mEq/L
+Potassium:                4.2 mEq/L               Reference: 3.5-5.0 mEq/L
+Chloride:                 101 mEq/L               Reference: 98-106 mEq/L
+Bicarbonate (CO2):        24 mEq/L                Reference: 22-28 mEq/L
+Blood Urea Nitrogen:      16 mg/dL                Reference: 7-20 mg/dL
+Creatinine:               0.88 mg/dL              Reference: 0.59-1.04 mg/dL
+eGFR (CKD-EPI):           82 mL/min/1.73m2        Reference: >60 mL/min (normal)
+  NOTE: eGFR is within normal range. No evidence of chronic kidney disease.
+  Recommend monitoring annually given new diabetes diagnosis.
+
+Calcium:                  9.4 mg/dL               Reference: 8.5-10.5 mg/dL
+Total Protein:            7.1 g/dL                Reference: 6.0-8.3 g/dL
+Albumin:                  4.2 g/dL                Reference: 3.5-5.5 g/dL
+Bilirubin, Total:         0.8 mg/dL               Reference: 0.1-1.2 mg/dL
+ALP:                      72 U/L                  Reference: 44-147 U/L
+ALT:                      38 U/L                  Reference: 7-56 U/L
+AST:                      29 U/L                  Reference: 10-40 U/L
+
+============================================================
+LIPID PANEL (FASTING)
+============================================================
+
+Total Cholesterol:        238 mg/dL        (H)    Reference: <200 mg/dL (desirable)
+LDL Cholesterol:          152 mg/dL        (H)    Reference: <100 mg/dL (optimal)
+                                                              100-129 (near optimal)
+                                                              130-159 (borderline high)
+HDL Cholesterol:          42 mg/dL         (L)    Reference: >50 mg/dL (women)
+Triglycerides:            220 mg/dL        (H)    Reference: <150 mg/dL (normal)
+Non-HDL Cholesterol:      196 mg/dL        (H)    Reference: <130 mg/dL
+
+INTERPRETATION: Dyslipidaemia with elevated LDL, elevated triglycerides,
+and low HDL. This lipid pattern is frequently associated with insulin
+resistance and Type 2 Diabetes. Given new T2DM diagnosis, statin therapy
+is recommended per ADA/ACC guidelines. Lifestyle modifications including
+dietary changes and regular exercise should be initiated.
+
+WARNING: LDL of 152 mg/dL combined with new T2DM diagnosis places this
+patient in a higher cardiovascular risk category. Consider moderate-intensity
+statin therapy (e.g., atorvastatin 10-20mg or rosuvastatin 5-10mg).
+
+============================================================
+COMPLETE BLOOD COUNT
+============================================================
+
+WBC:                      6.8 x10^9/L             Reference: 4.5-11.0
+RBC:                      4.12 x10^12/L            Reference: 3.90-5.30
+Hemoglobin:               12.8 g/dL               Reference: 12.0-16.0
+Hematocrit:               38.4%                   Reference: 36-46%
+MCV:                      93 fL                   Reference: 80-100
+MCH:                      31.1 pg                 Reference: 27-33
+MCHC:                     33.3 g/dL               Reference: 32-36
+RDW:                      13.2%                   Reference: 11.5-14.5
+Platelet Count:           268 x10^9/L             Reference: 150-400
+
+Differential:
+  Neutrophils:            58%                     Reference: 40-70%
+  Lymphocytes:            32%                     Reference: 20-40%
+  Monocytes:              7%                      Reference: 2-8%
+  Eosinophils:            2%                      Reference: 1-4%
+  Basophils:              1%                      Reference: 0-1%
+
+INTERPRETATION: Complete blood count within normal limits. No evidence of
+anaemia, infection, or haematological abnormality.
+
+============================================================
+THYROID FUNCTION
+============================================================
+
+TSH:                      3.8 mIU/L               Reference: 0.4-4.0 mIU/L
+Free T4:                  1.1 ng/dL               Reference: 0.8-1.8 ng/dL
+
+INTERPRETATION: Thyroid function normal. TSH at upper end of normal range —
+recheck in 6-12 months if symptoms of hypothyroidism develop (fatigue,
+weight gain, cold intolerance). Fatigue complaint more likely attributable
+to uncontrolled diabetes.
+
+============================================================
+URINALYSIS
+============================================================
+
+Colour:                   Yellow, clear
+Specific Gravity:         1.028           (H)     Reference: 1.005-1.025
+pH:                       5.5                     Reference: 4.5-8.0
+Glucose:                  2+              (H)     Reference: Negative
+Protein:                  Trace                   Reference: Negative
+Ketones:                  Negative                Reference: Negative
+Blood:                    Negative                Reference: Negative
+Leukocyte Esterase:       Negative                Reference: Negative
+Nitrites:                 Negative                Reference: Negative
+
+Urine Albumin:            32 mg/L
+Urine Creatinine:         1.42 g/L
+UACR:                     22.5 mg/g               Reference: <30 mg/g (normal)
+
+INTERPRETATION: Glycosuria consistent with hyperglycemia (glucose spilling
+into urine when blood glucose exceeds renal threshold of ~180 mg/dL).
+Trace proteinuria — UACR is 22.5 mg/g, which is within normal range
+(<30 mg/g) but approaching the microalbuminuria threshold. Recommend
+repeat UACR in 3-6 months given new diabetes diagnosis.
+
+WARNING: Elevated specific gravity suggests concentrated urine, possibly
+related to dehydration or osmotic diuresis from hyperglycemia. Patient
+reports increased thirst — consistent with polyuria/polydipsia symptoms
+of uncontrolled diabetes. Adequate hydration should be ensured.
+
+============================================================
+ADDITIONAL TESTS
+============================================================
+
+Vitamin D, 25-Hydroxy:    18 ng/mL        (L)    Reference: 30-100 ng/mL
+  INTERPRETATION: Vitamin D deficiency. Supplement with cholecalciferol
+  (Vitamin D3) 2000-4000 IU daily. Recheck level in 3 months.
+
+C-Reactive Protein (hs):  4.2 mg/L        (H)    Reference: <3.0 mg/L
+  NOTE: Mildly elevated hs-CRP indicates low-grade systemic inflammation,
+  which is common in insulin resistance and obesity. Also an independent
+  cardiovascular risk marker.
+
+Insulin, Fasting:         28.4 uIU/mL     (H)    Reference: 2.6-24.9 uIU/mL
+  NOTE: Elevated fasting insulin confirms insulin resistance. HOMA-IR
+  calculation: (142 x 28.4) / 405 = 9.96 (markedly elevated; normal <2.5).
+
+============================================================
+SUMMARY AND RECOMMENDATIONS
+============================================================
+
+CRITICAL FINDINGS:
+1. New diagnosis of Type 2 Diabetes Mellitus — FPG 142 mg/dL and HbA1c 7.2%
+   both exceed diagnostic thresholds
+2. Dyslipidaemia — elevated LDL (152), elevated triglycerides (220), low HDL (42)
+3. Insulin resistance confirmed — HOMA-IR 9.96
+4. Vitamin D deficiency — 18 ng/mL
+
+RECOMMENDED ACTIONS:
+1. Initiate diabetes management — lifestyle modifications, consider metformin
+   (eGFR 82 mL/min, no contraindication)
+2. Start moderate-intensity statin therapy for cardiovascular risk reduction
+3. Supplement Vitamin D3 (2000-4000 IU daily)
+4. Refer for dilated retinal examination (baseline screening)
+5. Refer for comprehensive foot examination
+6. Repeat UACR in 3-6 months
+7. Follow-up HbA1c in 3 months to assess response to treatment
+8. Consider referral to diabetes educator and dietitian
+
+Reported by:
+Dr. Amanda Torres, MD
+Director of Clinical Pathology
+Pacific Medical Centre
+
+Verified by:
+Dr. James Park, PhD
+Senior Clinical Biochemist
+12 March 2024 at 14:30
+
+============================================================
+END OF REPORT
+============================================================

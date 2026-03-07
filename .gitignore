@@ -1,9 +1,10 @@
 .env
 venv/
 data/chroma_db/
+data/processed/
 data/eval_results/
 __pycache__/
 *.pyc
-
+.streamlit/secrets.toml
 
 notes.md

@@ -1,6 +1,5 @@
 # Phase 1: Document ingestion
 pymupdf==1.25.3           # PDF parsing with page-level extraction (fast, reliable)
-python-docx==1.1.2        # Word document support (common in clinical settings)
 
 # Phase 2: Embeddings & vector store
 chromadb==1.0.7            # Vector database with HNSW indexing and metadata filtering
