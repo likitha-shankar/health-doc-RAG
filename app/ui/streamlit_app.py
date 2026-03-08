@@ -16,11 +16,12 @@ import streamlit as st
 # ── Streamlit Secrets → Env Vars ─────────────────────────────────────────
 # Streamlit Cloud stores secrets in st.secrets. Propagate them to env vars
 # so that generator.py and other modules can read them via os.environ.
-for key in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"):
-    if key not in os.environ:
-        val = st.secrets.get(key)
-        if val:
-            os.environ[key] = val
+try:
+    for key in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"):
+        if key not in os.environ and key in st.secrets:
+            os.environ[key] = st.secrets[key]
+except FileNotFoundError:
+    pass  # No secrets file — running locally with defaults
 
 # ── Imports ───────────────────────────────────────────────────────────────
 from app.generation.generator import generate_answer

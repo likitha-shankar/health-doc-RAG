@@ -8,18 +8,13 @@ sentence-transformers==4.1.0  # Embedding models (all-MiniLM-L6-v2)
 rank_bm25==0.2.2            # BM25 sparse retrieval for keyword matching
 # Phase 4: Reranking
 # Cross-encoder (cross-encoder/ms-marco-MiniLM-L-6-v2) is part of sentence-transformers
-# Phase 5: Generation (via Ollama, OpenAI-compatible API)
-openai==1.82.0              # OpenAI SDK — works with Ollama's compatible API
-# anthropic==0.55.0         # Uncomment if using Claude API instead of Ollama
-# Phase 6: Evaluation
-numpy==2.2.3              # Numerical operations for metric calculations
-# Phase 6b: Full Ragas evaluation with Gemini (optional — needs GOOGLE_API_KEY)
-ragas==0.2.15             # LLM-judge evaluation framework (faithfulness, relevancy, precision, recall)
-langchain-google-genai==2.1.8  # Google Gemini integration for Ragas LLM judge
+# Phase 5: Generation (via Ollama or any OpenAI-compatible API)
+openai==1.82.0              # OpenAI SDK — works with Ollama, Groq, Together AI, etc.
 # Phase 8: Streamlit UI
 streamlit==1.43.2         # Interactive web UI for querying the RAG system
 
 # Utilities
+numpy==2.2.3              # Numerical operations for metric calculations
 pydantic==2.11.1          # Data validation for chunk schemas — catches bad data early
 pyyaml==6.0.3             # Config file parsing
 python-dotenv==1.1.0      # Load .env file automatically (API keys, config)
